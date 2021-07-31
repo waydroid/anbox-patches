@@ -8,8 +8,6 @@
   <project path="hardware/intel/common/libva" name="Anbox-halium/android_hardware_intel_common_libva" remote="ghub" revision="refs/heads/lineage-17.1" />
 
   <!-- Anbox Projects -->
-  <project path="vendor/anbox" name="Anbox-halium/anbox-patches" remote="ghub" revision="refs/heads/lineage-17.1" />
-  <project path="vendor/anbox/anbox-halium" name="Anbox-halium/anbox-halium" remote="ghub" revision="refs/heads/lineage-17.1" />
   <project path="device/halium/anbox" name="Anbox-halium/android_device_halium_anbox" remote="ghub" revision="refs/heads/lineage-17.1" />
   <project path="hardware/anbox/interfaces" name="Anbox-halium/android_hardware_anbox_interfaces" remote="ghub" revision="refs/heads/lineage-17.1" />
 
