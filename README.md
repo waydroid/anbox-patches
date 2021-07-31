@@ -7,8 +7,6 @@ Getting started
 To get started with Android/LineageOS/BlissROM, you'll need to get
 familiar with [Repo](https://source.android.com/source/using-repo.html) and [Version Control with Git](https://source.android.com/source/version-control.html).
 
-
-
 To initialize your local repository using the LineageOS trees, use a command like this:
 ```
 repo init -u git://github.com/LineageOS/android.git -b lineage-17.1
@@ -17,15 +15,12 @@ or... to initialize your local repository using the BlissROM trees, use a comman
 ```
 repo init -u https://github.com/BlissRoms/platform_manifest.git -b q
 ```
-
 And do an initial sync:
 ```
 repo sync
 ```
-
 Adding Anbox-halium
 -------------------
-
 Clone in anbox vendor:
 ```
 git clone https://github.com/Anbox-halium/anbox-patches vendor/anbox
@@ -43,10 +38,8 @@ Then to apply anbox patches:
 ```
 apply-anbox-patches
 ```
-
 How to build
 ---------------
-
 Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building environment setup.
 
 To build anbox for LineageOS:
