@@ -49,3 +49,10 @@ function anbox-generate-props
 	${vendor_path}/anbox-halium/scripts/generate-props.sh
 
 }
+
+function anbox-generate-manifest
+{
+
+	${vendor_path}/manifest_scripts/generate-remove-project.sh
+
+}
