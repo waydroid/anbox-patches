@@ -1,8 +1,8 @@
-From 7eede2e3bddaa64954d850159332d696e31bd1f8 Mon Sep 17 00:00:00 2001
+From 95b0d3a8a16e1e07bc9a05b14b2f1109dcbf5983 Mon Sep 17 00:00:00 2001
 From: Simon Fels <morphis@gravedo.de>
 Date: Thu, 10 Nov 2016 08:04:23 +0100
-Subject: [PATCH 2/2] wm: Disable all app transitions as they conflict with our
- window management
+Subject: [PATCH 11/25] wm: Disable all app transitions as they conflict with
+ our window management
 
 Change-Id: I208080ac83100f5e6e7116c041b17fdd8f9328ab
 ---
@@ -12,7 +12,7 @@ Change-Id: I208080ac83100f5e6e7116c041b17fdd8f9328ab
  3 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/services/core/java/com/android/server/policy/PhoneWindowManager.java b/services/core/java/com/android/server/policy/PhoneWindowManager.java
-index 2646b87a3db..16b6f871b85 100644
+index 2646b87a3db4..16b6f871b853 100644
 --- a/services/core/java/com/android/server/policy/PhoneWindowManager.java
 +++ b/services/core/java/com/android/server/policy/PhoneWindowManager.java
 @@ -2903,7 +2903,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
@@ -25,7 +25,7 @@ index 2646b87a3db..16b6f871b85 100644
  
              wm = (WindowManager) context.getSystemService(WINDOW_SERVICE);
 diff --git a/services/core/java/com/android/server/wm/AppTransition.java b/services/core/java/com/android/server/wm/AppTransition.java
-index 52901bcef17..7678c0ab02e 100644
+index 52901bcef176..7678c0ab02e0 100644
 --- a/services/core/java/com/android/server/wm/AppTransition.java
 +++ b/services/core/java/com/android/server/wm/AppTransition.java
 @@ -1795,7 +1795,7 @@ public class AppTransition implements Dump {
@@ -38,7 +38,7 @@ index 52901bcef17..7678c0ab02e 100644
  
      private Animation loadKeyguardExitAnimation(int transit) {
 diff --git a/services/core/java/com/android/server/wm/TaskSnapshotSurface.java b/services/core/java/com/android/server/wm/TaskSnapshotSurface.java
-index 1905476f472..2c116b30ff2 100644
+index 1905476f4729..2c116b30ff2d 100644
 --- a/services/core/java/com/android/server/wm/TaskSnapshotSurface.java
 +++ b/services/core/java/com/android/server/wm/TaskSnapshotSurface.java
 @@ -112,7 +112,7 @@ class TaskSnapshotSurface implements StartingSurface {

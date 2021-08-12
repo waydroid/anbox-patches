@@ -1,7 +1,7 @@
-From 7cc836e68b9c33c2c0b69a801744fe636f5364c2 Mon Sep 17 00:00:00 2001
+From 792b7865341cb7194377f883f024d6c480adcb60 Mon Sep 17 00:00:00 2001
 From: Simon Fels <morphis@gravedo.de>
 Date: Thu, 8 Dec 2016 17:28:54 +0100
-Subject: [PATCH 1/2] wm: Include task id in surface name for easier tracking
+Subject: [PATCH 10/25] wm: Include task id in surface name for easier tracking
 
 Change-Id: Ia64c3e8ef8e4514223649417d843d7ef65e2f5ba
 ---
@@ -9,7 +9,7 @@ Change-Id: Ia64c3e8ef8e4514223649417d843d7ef65e2f5ba
  1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/services/core/java/com/android/server/wm/WindowStateAnimator.java b/services/core/java/com/android/server/wm/WindowStateAnimator.java
-index 3505afb5e7a..ed86bfc0a1e 100644
+index 3505afb5e7a3..ed86bfc0a1ec 100644
 --- a/services/core/java/com/android/server/wm/WindowStateAnimator.java
 +++ b/services/core/java/com/android/server/wm/WindowStateAnimator.java
 @@ -484,8 +484,14 @@ class WindowStateAnimator {

@@ -1,14 +1,14 @@
-From e77ae92d8b2ec2f98489062a07acaec0c99f4e7c Mon Sep 17 00:00:00 2001
+From 5eb0e1531e4096468a3a91ab1883a4c86d579087 Mon Sep 17 00:00:00 2001
 From: Simon Fels <morphis@gravedo.de>
 Date: Sun, 20 Nov 2016 12:11:41 +0100
-Subject: [PATCH 3/3] Prevent the system from entering a sleep state
+Subject: [PATCH 06/25] Prevent the system from entering a sleep state
 
 ---
  .../com/android/server/power/PowerManagerService.java     | 8 +++-----
  1 file changed, 3 insertions(+), 5 deletions(-)
 
 diff --git a/services/core/java/com/android/server/power/PowerManagerService.java b/services/core/java/com/android/server/power/PowerManagerService.java
-index ca37b59b543..3dbb3f95bc0 100644
+index ca37b59b543c..3dbb3f95bc07 100644
 --- a/services/core/java/com/android/server/power/PowerManagerService.java
 +++ b/services/core/java/com/android/server/power/PowerManagerService.java
 @@ -1101,8 +1101,7 @@ public final class PowerManagerService extends SystemService

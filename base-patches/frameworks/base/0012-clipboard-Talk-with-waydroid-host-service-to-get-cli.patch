@@ -1,8 +1,8 @@
-From 3d9350d4c04d63869f240c8810a45e1b1fd4434f Mon Sep 17 00:00:00 2001
+From df19e09cafbba22fdd5efe30535122eedabc384d Mon Sep 17 00:00:00 2001
 From: Simon Fels <morphis@gravedo.de>
 Date: Sun, 15 Jan 2017 12:35:43 +0100
-Subject: [PATCH] clipboard: Talk with waydroid host service to get clipboard
- synchronized
+Subject: [PATCH 12/25] clipboard: Talk with waydroid host service to get
+ clipboard synchronized
 
 Change-Id: Ia038dae3393dc4887ac9477aff642541ffc230a3
 ---
@@ -10,7 +10,7 @@ Change-Id: Ia038dae3393dc4887ac9477aff642541ffc230a3
  1 file changed, 33 insertions(+)
 
 diff --git a/services/core/java/com/android/server/clipboard/ClipboardService.java b/services/core/java/com/android/server/clipboard/ClipboardService.java
-index b279b370c61..899c9728b38 100644
+index b279b370c611..899c9728b38e 100644
 --- a/services/core/java/com/android/server/clipboard/ClipboardService.java
 +++ b/services/core/java/com/android/server/clipboard/ClipboardService.java
 @@ -68,6 +68,8 @@ import java.io.RandomAccessFile;
