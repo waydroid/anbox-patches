@@ -1,0 +1,119 @@
+From aecc7bb68e9ea29d8c19c82f93cdd855abb5af26 Mon Sep 17 00:00:00 2001
+From: utzcoz <utzcoz@outlook.com>
+Date: Sat, 26 Dec 2020 15:39:04 +0800
+Subject: [PATCH 25/25] Reload BoringdroidSystemUI after display theme and
+ tuner changed
+
+Signed-off-by: utzcoz <utzcoz@outlook.com>
+Change-Id: Idf6d9965012bb6453ddb96cc0c5d3ff2fe90dbce
+
+Conflicts:
+	packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java
+---
+ .../fragments/FragmentHostManager.java        | 13 ++++++++++++
+ .../phone/NavigationBarInflaterView.java      | 21 +++++++++++++++++++
+ 2 files changed, 34 insertions(+)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/fragments/FragmentHostManager.java b/packages/SystemUI/src/com/android/systemui/fragments/FragmentHostManager.java
+index 87d90adceba5..708a123cd699 100644
+--- a/packages/SystemUI/src/com/android/systemui/fragments/FragmentHostManager.java
++++ b/packages/SystemUI/src/com/android/systemui/fragments/FragmentHostManager.java
+@@ -22,8 +22,10 @@ import android.app.FragmentManager;
+ import android.app.FragmentManager.FragmentLifecycleCallbacks;
+ import android.app.FragmentManagerNonConfig;
+ import android.content.Context;
++import android.content.Intent;
+ import android.content.pm.ActivityInfo;
+ import android.content.res.Configuration;
++import android.net.Uri;
+ import android.os.Bundle;
+ import android.os.Handler;
+ import android.os.Looper;
+@@ -34,9 +36,11 @@ import android.view.View;
+ 
+ import androidx.annotation.NonNull;
+ 
++import com.android.internal.BoringdroidManager;
+ import com.android.settingslib.applications.InterestingConfigChanges;
+ import com.android.systemui.Dependency;
+ import com.android.systemui.plugins.Plugin;
++import com.android.systemui.shared.plugins.PluginManagerImpl;
+ import com.android.systemui.util.leak.LeakDetector;
+ 
+ import java.io.FileDescriptor;
+@@ -157,6 +161,15 @@ public class FragmentHostManager {
+     protected void onConfigurationChanged(Configuration newConfig) {
+         if (mConfigChanges.applyNewConfig(mContext.getResources())) {
+             reloadFragments();
++            // region @boringdroid
++            if (BoringdroidManager.IS_SYSTEMUI_PLUGIN_ENABLED) {
++                Intent intent = new Intent(
++                        PluginManagerImpl.PLUGIN_CHANGED,
++                        Uri.fromParts("package", "com.boringdroid.systemui", null)
++                );
++                mContext.sendBroadcast(intent);
++            }
++            // endregion
+         } else {
+             mFragments.dispatchConfigurationChanged(newConfig);
+         }
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java b/packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java
+index 2b57d4348a43..53fb35925ba0 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/phone/NavigationBarInflaterView.java
+@@ -22,10 +22,12 @@ import android.annotation.Nullable;
+ import android.app.ActivityManager;
+ import android.content.Context;
+ import android.content.om.IOverlayManager;
++import android.content.Intent;
+ import android.content.res.Configuration;
+ import android.graphics.drawable.Icon;
+ import android.os.RemoteException;
+ import android.os.ServiceManager;
++import android.net.Uri;
+ import android.util.AttributeSet;
+ import android.util.Log;
+ import android.util.SparseArray;
+@@ -42,6 +44,7 @@ import com.android.internal.BoringdroidManager;
+ import com.android.systemui.Dependency;
+ import com.android.systemui.R;
+ import com.android.systemui.recents.OverviewProxyService;
++import com.android.systemui.shared.plugins.PluginManagerImpl;
+ import com.android.systemui.shared.system.QuickStepContract;
+ import com.android.systemui.statusbar.phone.ReverseLinearLayout.ReverseRelativeLayout;
+ import com.android.systemui.statusbar.policy.KeyButtonView;
+@@ -213,6 +216,15 @@ public class NavigationBarInflaterView extends FrameLayout
+             mUsingCustomLayout = layoutValue != null;
+             clearViews();
+             inflateLayout(layoutValue);
++            // region @boringdroid
++            if (BoringdroidManager.IS_SYSTEMUI_PLUGIN_ENABLED) {
++                Intent intent = new Intent(
++                        PluginManagerImpl.PLUGIN_CHANGED,
++                        Uri.fromParts("package", "com.boringdroid.systemui", null)
++                );
++                getContext().sendBroadcast(intent);
++            }
++            // endregion
+         }
+     }
+ 
+@@ -225,6 +237,15 @@ public class NavigationBarInflaterView extends FrameLayout
+         if (!Objects.equals(mCurrentLayout, newValue)) {
+             clearViews();
+             inflateLayout(newValue);
++            // region @boringdroid
++            if (BoringdroidManager.IS_SYSTEMUI_PLUGIN_ENABLED) {
++                Intent intent = new Intent(
++                        PluginManagerImpl.PLUGIN_CHANGED,
++                        Uri.fromParts("package", "com.boringdroid.systemui", null)
++                );
++                getContext().sendBroadcast(intent);
++            }
++            // endregion
+         }
+     }
+ 
+-- 
+2.25.1
+
