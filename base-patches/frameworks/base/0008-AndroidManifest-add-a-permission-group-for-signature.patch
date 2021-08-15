@@ -1,7 +1,7 @@
-From 5b989fcbe22653614074adccd31bab861a2d62dc Mon Sep 17 00:00:00 2001
+From 219aba1829c7c5263f7522880f3884e1f6c4004a Mon Sep 17 00:00:00 2001
 From: Vachounet <vachounet@live.fr>
 Date: Wed, 12 Feb 2020 11:34:33 +0100
-Subject: [PATCH 2/3] AndroidManifest: add a permission group for signature
+Subject: [PATCH 08/25] AndroidManifest: add a permission group for signature
  spoofing
 
 Needed by PackageInstaller while checking for modern permission group
@@ -13,7 +13,7 @@ Change-Id: Ibb402960dcde6d21106d1481ca7c3cd314fd2ac1
  2 files changed, 15 insertions(+)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 10853678f39..15a573f2c74 100644
+index 10853678f393..15a573f2c744 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
 @@ -2655,9 +2655,17 @@
@@ -35,7 +35,7 @@ index 10853678f39..15a573f2c74 100644
          android:label="@string/permlab_fakePackageSignature"
          android:description="@string/permdesc_fakePackageSignature" />
 diff --git a/core/res/res/values/cm_strings.xml b/core/res/res/values/cm_strings.xml
-index 9c55e4428b4..674583b3a0e 100644
+index 9c55e4428b46..674583b3a0ec 100644
 --- a/core/res/res/values/cm_strings.xml
 +++ b/core/res/res/values/cm_strings.xml
 @@ -34,5 +34,12 @@

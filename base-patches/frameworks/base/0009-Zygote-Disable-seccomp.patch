@@ -1,7 +1,7 @@
-From 7739bc338b7fb8700dffffda9e82d18ce20d02fb Mon Sep 17 00:00:00 2001
+From b57c2e182b059a3c49e0ada39f68eb2a273f00f4 Mon Sep 17 00:00:00 2001
 From: Erfan Abdi <erfangplus@gmail.com>
 Date: Thu, 17 Jun 2021 01:39:59 +0800
-Subject: [PATCH] Zygote: Disable seccomp
+Subject: [PATCH 09/25] Zygote: Disable seccomp
 
 Change-Id: Ia29148f887a6fdcbc65803a4dec1a881b353df95
 ---
@@ -9,7 +9,7 @@ Change-Id: Ia29148f887a6fdcbc65803a4dec1a881b353df95
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/core/jni/com_android_internal_os_Zygote.cpp b/core/jni/com_android_internal_os_Zygote.cpp
-index d83bac8ab3a..8dc366eab4e 100644
+index d83bac8ab3a0..8dc366eab4e8 100644
 --- a/core/jni/com_android_internal_os_Zygote.cpp
 +++ b/core/jni/com_android_internal_os_Zygote.cpp
 @@ -532,7 +532,7 @@ static void PreApplicationInit() {

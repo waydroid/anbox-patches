@@ -1,0 +1,5 @@
+<remove-project name="platform/system/libhidl" />
+<remove-project name="platform/system/libhwbinder" />
+<remove-project name="platform/external/libdrm" />
+<remove-project name="platform/external/mesa3d" />
+<remove-project name="platform/hardware/intel/common/libva" />
