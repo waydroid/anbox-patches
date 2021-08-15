@@ -1,7 +1,7 @@
-From dbfe70e7893031fb3fa72ddcd00aac0083052c6c Mon Sep 17 00:00:00 2001
+From cda5f93112128a18b4f4ad134432f04724504908 Mon Sep 17 00:00:00 2001
 From: utzcoz <utzcoz@outlook.com>
 Date: Thu, 3 Sep 2020 00:09:53 +0800
-Subject: [PATCH 22/25] Impl basic window round corner with Outline
+Subject: [PATCH 2/2] Impl basic window round corner with Outline
 
 Signed-off-by: utzcoz <utzcoz@outlook.com>
 Change-Id: I65925af3c2739fc896ee26076f80da45dbffeaf8

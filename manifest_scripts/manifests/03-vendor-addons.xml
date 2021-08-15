@@ -5,7 +5,7 @@
   <project path="vendor/boringdroid" name="boringdroid/vendor_boringdroid" remote="ghub" revision="refs/heads/boringdroid-10.0.0" />
   <project path="vendor/prebuilts/bdapps" name="boringdroid/vendor_prebuilts_bdapps" remote="ghub" revision="refs/heads/boringdroid-10.0.0" />
 
-  <!-- Display -->
-  <project path="vendor/foss" name="BlissRoms-x86/vendor/foss" remote="ghub" revision="refs/heads/foss-minimal" />
+  <!-- Foss -->
+  <project path="vendor/foss" name="BlissRoms-x86/vendor_foss" remote="ghub" revision="refs/heads/foss-minimal" />
   
 </manifest>
